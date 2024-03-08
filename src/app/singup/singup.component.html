@@ -1,0 +1,74 @@
+<div class="container">
+  <mat-card class="card">
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label="Login">
+          <form (ngSubmit)="login(loginEmail.value,loginPassword.value)">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Email" type="email" #loginEmail [formControl]="LoginEmailFormControl" >
+              @if (LoginEmailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+                <mat-error>Please enter a valid email address</mat-error>
+              }
+              @if (LoginEmailFormControl.hasError('required')) {
+                <mat-error>Email is <strong>required</strong></mat-error>
+              }
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" #loginPassword [formControl]="LoginPasswordFromControl">
+              <button mat-icon-button matSuffix type="button" (click)="toggleLoginPassword()" [attr.aria-label]="signupp ? 'Hide password' : 'Show password'" [attr.aria-pressed]="signup">
+                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+              @if (LoginPasswordFromControl.hasError('required')) {
+                <mat-error>Password is <strong>required</strong></mat-error>
+              }
+              @if (LoginPasswordFromControl.hasError('minlength')) {
+                <mat-error>Password must be at least 6 characters long</mat-error>
+              }
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="full-width" type="submit"
+            [disabled]="!LoginEmailFormControl.valid||!LoginPasswordFromControl.valid">Login</button>
+            <div class="forgot-password">
+              <h6 (click)="forget()">Forgot password?</h6>
+            </div>
+          </form>
+        </mat-tab>
+        <mat-tab label="Signup">
+          <form (ngSubmit)="signup(password.value, confirmPassword.value ,email.value)">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Email" type="email" #email [formControl]="emailFormControl" >
+              @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+                <mat-error>Please enter a valid email address</mat-error>
+              }
+              @if (emailFormControl.hasError('required')) {
+                <mat-error>Email is <strong>required</strong></mat-error>
+              }
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Password" [type]="signupp ? 'password' : 'text'" #password [formControl]="PasswordFromControl">
+              <button mat-icon-button matSuffix type="button" (click)="togglePassword()" [attr.aria-label]="signupp ? 'Hide password' : 'Show password'" [attr.aria-pressed]="signup">
+                <mat-icon>{{ signupp ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+              @if (PasswordFromControl.hasError('required')) {
+                <mat-error>Password is <strong>required</strong></mat-error>
+              }
+              @if (PasswordFromControl.hasError('minlength')) {
+                <mat-error>Password must be at least 6 characters long</mat-error>
+              }
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Confirm Password" type="password" #confirmPassword [formControl]="ConformPasswordFromControl">
+              @if (ConformPasswordFromControl.hasError('required')) {
+                <mat-error>Password is <strong>required</strong></mat-error>
+              }
+              @if (ConformPasswordFromControl.hasError('minlength')) {
+                <mat-error>Password must be at least 6 characters long</mat-error>
+              }
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="full-width" type="submit" [disabled]="!ConformPasswordFromControl.valid||!PasswordFromControl.valid||!emailFormControl.valid">Signup</button>
+          </form>
+        </mat-tab>
+        
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

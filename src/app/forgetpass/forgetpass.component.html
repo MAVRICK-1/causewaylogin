@@ -1,0 +1,18 @@
+<mat-dialog-content>
+    <p>Enter your email</p>
+</mat-dialog-content>
+<form (ngSubmit)="resetPassword(email.value)">
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+    <input type="email" matInput [formControl]="emailFormControl" #email placeholder="Ex. pat@example.com">
+    @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+      <mat-error>Please enter a valid email address</mat-error>
+    }
+    @if (emailFormControl.hasError('required')) {
+      <mat-error>Email is <strong>required</strong></mat-error>
+    }
+    </mat-form-field>
+    <mat-dialog-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!email.value" [mat-dialog-close] >Reset Password</button>
+    </mat-dialog-actions>
+</form>

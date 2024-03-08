@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  width: 400px;
+  padding: 20px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.forgot-password {
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
+}
