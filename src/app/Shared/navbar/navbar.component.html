@@ -1,14 +1,13 @@
 <nav>
     <mat-toolbar color="primary">
-        <button mat-button routerLink="/">Causeaway</button>
+        <button mat-button routerLink="/"><b>CodeBin</b></button>
         <span class="example-spacer"></span>
         @if(authService.isAuthenticated()){
             <button mat-raised-button color="warn" (click)="authService.logout()">Logout</button>
         }
         @else{
-            <button mat-raised-button color="warn" [routerLink]="['/singup']"  >Singin</button>
+            <button mat-raised-button color="warn" [routerLink]="['/signup']"  >Sign in</button>
         }
     </mat-toolbar>
 </nav>
-
 

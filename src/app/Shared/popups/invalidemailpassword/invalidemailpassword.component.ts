@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogActions, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { MatmoduleModule } from '../matmodule/matmodule.module';
+import { MatmoduleModule } from '../../models/matmodule.module';
 
 @Component({
   selector: 'app-invalidemailpassword',

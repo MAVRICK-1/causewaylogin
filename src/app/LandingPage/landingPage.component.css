@@ -1,0 +1,147 @@
+/* Global styles */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Landing page styles */
+  
+  .landing-page {
+    background-color: #f8f9fa;
+  }
+  
+  main {
+    padding: 50px;
+  }
+  
+  .hero {
+    background-color: #007bff;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+  }
+  
+  .features {
+    text-align: center;
+  }
+  
+  .features h2 {
+    margin-bottom: 40px;
+  }
+  
+  .feature-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .feature {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature mat-icon {
+    color: #007bff;
+  }
+  
+  .feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .testimonials {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .testimonials h2 {
+    margin-bottom: 40px;
+  }
+  
+  .testimonial-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .testimonial {
+    max-width: 300px;
+  }
+  
+  .testimonial img {
+    width: 100%;
+    border-radius: 50%;
+  }
+  
+  .testimonial mat-card-content {
+    padding: 20px;
+  }
+  
+  .testimonial-author {
+    margin-top: 10px;
+    font-style: italic;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Responsive styles */
+  
+  @media screen and (max-width: 768px) {
+    main {
+      padding: 30px;
+    }
+  
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .hero p {
+      font-size: 1rem;
+    }
+  
+    .feature-list {
+      flex-wrap: wrap;
+    }
+  
+    .feature {
+      flex: 1 1 calc(50% - 20px);
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .feature {
+      flex: 1 1 100%;
+    }
+  
+    .testimonial-list {
+      flex-wrap: wrap;
+    }
+  
+    .testimonial {
+      flex: 1 1 calc(50% - 20px);
+      margin-bottom: 20px;
+    }
+  }
+  

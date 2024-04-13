@@ -17,6 +17,7 @@
 
 .forgot-password {
   text-align: right;
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {

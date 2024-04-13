@@ -1,8 +1,0 @@
-.example-spacer {
-    flex: 1 1 auto;
-  }
-nav{
-    position: fixed;
-    width: 100%;
-    z-index: 10;
-}

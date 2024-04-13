@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { MatmoduleModule } from '../matmodule/matmodule.module';
-import { AuthService } from '../auth.service';
-import {FormControl, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormControl, FormsModule, Validators } from '@angular/forms';
 import { MatDialogActions, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { AuthService } from '../../../auth.service';
+import { MatmoduleModule } from '../../models/matmodule.module';
 
 @Component({
   selector: 'app-forgetpass',

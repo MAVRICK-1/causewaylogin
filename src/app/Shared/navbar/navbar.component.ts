@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { MatmoduleModule } from '../matmodule/matmodule.module';
+import { Component, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { AuthService } from '../auth.service';
-import { LoginComponent } from '../login/login.component';
+import { AuthService } from '../../auth.service';
+import { MatmoduleModule } from '../models/matmodule.module';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-navbar',
@@ -12,9 +12,9 @@ import { LoginComponent } from '../login/login.component';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  constructor(public authService:AuthService) {
+  constructor(public authService:AuthService) {}
 
-   }
+   
   logout() {
     this.authService.logout();}
 

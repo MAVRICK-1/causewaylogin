@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatmoduleModule } from '../matmodule/matmodule.module';
+import { MatmoduleModule } from '../Shared/models/matmodule.module';
 import {
   FormControl,
   FormGroupDirective,
@@ -11,12 +11,12 @@ import {
 
 
 import { MatDialog } from '@angular/material/dialog';
-import { PasswordDialogComponent } from '../password-dialog/password-dialog.component';
+import { PasswordDialogComponent } from '../Shared/popups/password-dialog/password-dialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { AuthService } from '../auth.service';
-import { ForgetpassComponent } from '../forgetpass/forgetpass.component';
+import { ForgetpassComponent } from '../Shared/popups/forgetpass/forgetpass.component';
 //MatFormFieldModule,MatInputModule,ReactiveFormsModule
 @Component({
   standalone: true,

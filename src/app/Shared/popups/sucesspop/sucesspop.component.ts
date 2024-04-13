@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MatmoduleModule } from '../matmodule/matmodule.module';
 import { MatDialogActions, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatmoduleModule } from '../../models/matmodule.module';
 
 @Component({
   selector: 'app-sucesspop',
