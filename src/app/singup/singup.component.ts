@@ -1,22 +1,19 @@
 import { Component } from '@angular/core';
-import { MatmoduleModule } from '../Shared/models/matmodule.module';
 import {
   FormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators,
   FormsModule,
   ReactiveFormsModule,
+  Validators
 } from '@angular/forms';
+import { MatmoduleModule } from '../Shared/models/matmodule.module';
 
 
 import { MatDialog } from '@angular/material/dialog';
-import { PasswordDialogComponent } from '../Shared/popups/password-dialog/password-dialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ErrorStateMatcher } from '@angular/material/core';
-import { AuthService } from '../auth.service';
 import { ForgetpassComponent } from '../Shared/popups/forgetpass/forgetpass.component';
+import { PasswordDialogComponent } from '../Shared/popups/password-dialog/password-dialog.component';
+import { AuthService } from '../core/AuthService/auth.service';
 //MatFormFieldModule,MatInputModule,ReactiveFormsModule
 @Component({
   standalone: true,

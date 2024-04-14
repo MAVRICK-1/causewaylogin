@@ -1,0 +1,63 @@
+h1 {
+    text-align: center;
+  }
+  
+  .add-code-btn {
+    display: block;
+    margin: 0 auto 20px; /* Center the button horizontally */
+  }
+  
+  .snippet-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .snippet-card {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .snippet-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .snippet-content {
+    padding: 16px;
+  }
+  
+  .snippet-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px 16px;
+  }
+  
+  .mat-icon-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .mat-icon-button:hover {
+    color: #007bff;
+  }
+  
+  .no-code-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 73vh; /* Adjust the height as needed */
+  }
+  
+  .no-code-found h1,
+  .no-code-found button {
+    margin-bottom: 20px; /* Adjust the margin as needed */
+  }
+  

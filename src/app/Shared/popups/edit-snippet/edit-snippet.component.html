@@ -1,0 +1,14 @@
+<div class="dialog-container">
+    <div class="dialog-title">Edit Snippet</div>
+    <div class="dialog-content">
+        <mat-form-field class="input-group">
+            <input type="text" matInput  placeholder="Title" [(ngModel)]="codeData.title" required >
+        </mat-form-field>
+    
+      <textarea class="input-field" placeholder="Code" rows="4"  [(ngModel)]="codeData.codeSnippet"></textarea>
+    </div>
+    <div class="dialog-actions">
+      <button mat-raised-button class="button cancel-button" (click)="onCancel()">Cancel</button>
+      <button mat-raised-button class="button save-button" (click)="onSave()">Save</button>
+    </div>
+  </div>

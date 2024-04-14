@@ -1,0 +1,35 @@
+.codebin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh);
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .full {
+    width: 100%;
+  }
+  
+  button {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .mat-error {
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  

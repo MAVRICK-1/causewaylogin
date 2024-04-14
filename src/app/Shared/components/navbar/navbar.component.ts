@@ -1,8 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { AuthService } from '../../auth.service';
-import { MatmoduleModule } from '../models/matmodule.module';
-import { MatSidenav } from '@angular/material/sidenav';
+import { AuthService } from '../../../core/AuthService/auth.service';
+import { MatmoduleModule } from '../../models/matmodule.module';
 
 @Component({
   selector: 'app-navbar',

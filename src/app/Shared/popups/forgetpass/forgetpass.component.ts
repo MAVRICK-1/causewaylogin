@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormsModule, Validators } from '@angular/forms';
 import { MatDialogActions, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { AuthService } from '../../../auth.service';
+import { AuthService } from '../../../core/AuthService/auth.service';
 import { MatmoduleModule } from '../../models/matmodule.module';
 
 @Component({

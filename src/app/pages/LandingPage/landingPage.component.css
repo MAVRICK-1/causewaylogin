@@ -98,13 +98,7 @@ body, html {
     font-style: italic;
   }
   
-  footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #333;
-    color: #fff;
-  }
-  
+ 
   /* Responsive styles */
   
   @media screen and (max-width: 768px) {

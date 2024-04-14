@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { AuthService } from '../../auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../core/AuthService/auth.service';
 
 @Component({
   selector: 'app-loading-page',

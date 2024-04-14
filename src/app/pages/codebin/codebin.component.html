@@ -1,0 +1,23 @@
+<div class="codebin">
+    <form class="container" [formGroup]="binForm">
+        <h4>Create code snippet</h4>
+        <br/>
+        <mat-form-field class="full-width">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Title" formControlName="title">
+        </mat-form-field>
+        <mat-error *ngIf="binForm.get('title')!.invalid && (binForm.get('title')!.dirty || binForm.get('title')!.touched)">
+            Title is required
+        </mat-error>
+        <br/>
+        <mat-form-field class="full">
+            <textarea matInput placeholder="Code snippet here" formControlName="code"></textarea>
+                <mat-error *ngIf="binForm.get('code')!.invalid && (binForm.get('code')!.dirty || binForm.get('code')!.touched)">
+                    Code is required
+                </mat-error>
+            </mat-form-field>
+        
+        <br/>
+        <button mat-raised-button color="primary" [disabled]="binForm.invalid" (click)="save()">Create</button>
+    </form>
+</div>

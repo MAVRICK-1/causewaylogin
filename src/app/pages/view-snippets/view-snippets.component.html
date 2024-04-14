@@ -1,0 +1,36 @@
+<div *ngIf="snippets.length > 0; else noCodeFound">
+    <h1>Code Snippets</h1>
+    <button mat-raised-button color="warn" (click)="addCode()">Add Code</button>
+    <div class="snippet-container">
+      <mat-card *ngFor="let snippet of snippets" class="snippet-card">
+        <mat-card-header>
+          <mat-card-title>{{ snippet.title }}</mat-card-title>
+          <mat-card-subtitle>By: {{ snippet.codeSnippet }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="snippet-content">
+          <!-- Additional content if needed -->
+        </mat-card-content>
+        <mat-card-actions class="snippet-actions">
+          <button mat-icon-button (click)="copySnippet(snippet.codeSnippet)">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+          <button mat-icon-button (click)="editSnippet(snippet.id,snippet.title,snippet.codeSnippet)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteSnippet(snippet.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>share</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  <ng-template #noCodeFound>
+    <div class="no-code-found">
+      <h1>No code found</h1>
+      <button mat-raised-button color="warn" (click)="addCode()">Add Code</button>
+    </div>
+  </ng-template>
+  

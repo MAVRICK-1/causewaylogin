@@ -1,30 +1,37 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { GithubAuthProvider, GoogleAuthProvider, ActionCodeSettings, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, sendPasswordResetEmail, signOut, sendSignInLinkToEmail, signInWithEmailLink } from 'firebase/auth';
-import { EmailAlreadyexistComponent } from './Shared/popups/email-alreadyexist/email-alreadyexist.component';
-import { InvalidEmailComponent } from './Shared/popups/invalid-email/invalid-email.component';
-import { InvalidemailpasswordComponent } from './Shared/popups/invalidemailpassword/invalidemailpassword.component';
-import { LinksendComponent } from './Shared/popups/linksend/linksend.component';
-import { SucesspopComponent } from './Shared/popups/sucesspop/sucesspop.component';
+import { ActionCodeSettings, GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, sendPasswordResetEmail, sendSignInLinkToEmail, signInWithEmailAndPassword, signInWithEmailLink, signInWithPopup, signOut } from 'firebase/auth';
+import { EmailAlreadyexistComponent } from '../../Shared/popups/email-alreadyexist/email-alreadyexist.component';
+import { InvalidEmailComponent } from '../../Shared/popups/invalid-email/invalid-email.component';
+import { InvalidemailpasswordComponent } from '../../Shared/popups/invalidemailpassword/invalidemailpassword.component';
+import { LinksendComponent } from '../../Shared/popups/linksend/linksend.component';
+import { SucesspopComponent } from '../../Shared/popups/sucesspop/sucesspop.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private uid?: string;
+  private user?: any;
 
   constructor(public dialog: MatDialog, private router: Router) {
+    this.AuthStateChanged();
+  }
+  AuthStateChanged(){
     const auth = getAuth();
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.uid = user.uid;
-        localStorage.setItem('uid', this.uid);
-      } else {
-        this.uid = undefined;
-        localStorage.removeItem('uid');
-      }
-    });
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      this.uid = user.uid;
+      window.localStorage.setItem('uid',this.uid)
+      this.user = user;
+    } else {
+      this.uid = undefined;
+      window.localStorage.removeItem('uid')
+      this.user = undefined;
+    }
+  });
+  return this.user
   }
 
   signInWithGithub() {
@@ -185,5 +192,8 @@ sendSignInLinkToEmail(auth, email, actionCodeSettings)
         console.log('Error occurred during password reset:', error);
         this.dialog.open(LinksendComponent);
       });
+  }
+  getCurrentUser(){
+    return getAuth().currentUser;
   }
 }

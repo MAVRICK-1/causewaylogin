@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatDialogActions, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { RouterLink } from '@angular/router';
-import { AuthService } from '../../../auth.service';
+import { AuthService } from '../../../core/AuthService/auth.service';
 import { MatmoduleModule } from '../../models/matmodule.module';
 
 @Component({
