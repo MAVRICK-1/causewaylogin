@@ -8,7 +8,6 @@ import { AuthService } from '../AuthService/auth.service';
 })
 export class FireStoreService {
   db: Firestore;
-
   constructor(private router: Router, private authService: AuthService) {
     this.db = getFirestore();
   }
@@ -38,7 +37,7 @@ export class FireStoreService {
   }
 
   async getSnippetById(docId: string) {
-    const uid = this.authService.getUid();
+    const uid = window.localStorage.getItem('uid');
     const docRef = doc(this.db, `users/${uid}/codesamples`, docId);
     const docSnap = await getDoc(docRef);
 
@@ -46,6 +45,7 @@ export class FireStoreService {
       console.log("Document data:", docSnap.data());
       return docSnap.data();
     } else {
+      console.log("No such document!");
       // docSnap.data() will be undefined in this case
       return {
         id: "1",
@@ -79,6 +79,23 @@ export class FireStoreService {
     } catch (error) {
       console.error("Error editing document: ", error);
       return false;
+    }
+  }
+  async ShareSnippetById(docId: string,uid:string) {
+    const docRef = doc(this.db, `users/${uid}/codesamples`, docId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+      return docSnap.data();
+    } else {
+      console.log("No such document!");
+      // docSnap.data() will be undefined in this case
+      return {
+        id: "1",
+        title: "not found",
+        code: "not found"
+      };
     }
   }
 

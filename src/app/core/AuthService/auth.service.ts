@@ -79,6 +79,8 @@ export class AuthService {
     sendPasswordResetEmail(auth, email, actionCodeSettings)
       .then(() => {
         // Email sent.
+        console.log("email send");
+        
       }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;

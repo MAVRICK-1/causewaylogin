@@ -17,6 +17,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 export class ViewSnippetsComponent implements OnInit {
   snippets: any[] = [];
   uid:any
+  isLoading: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +31,16 @@ export class ViewSnippetsComponent implements OnInit {
   ngOnInit() {
     this.loadSnippets(); // Call loadSnippets() when the component initializes
   }
+  truncatedSnippets: { [key: string]: boolean } = {};
+
+getTruncatedSnippet(codeSnippet: string): string {
+  const maxLength = 30; // Change this to the desired maximum length
+  return this.truncatedSnippets[codeSnippet] ? codeSnippet : codeSnippet.slice(0, maxLength) + '...';
+}
+
+isExpanded(snippet: any): boolean {
+  return this.truncatedSnippets[snippet.codeSnippet];
+}
 
   addCode(){
     this.router.navigate(['codebin']);
@@ -78,5 +89,18 @@ export class ViewSnippetsComponent implements OnInit {
   this._snackBar.open('Code copied to clipboard', 'Close', {
     duration: 2000,
   });
+  }
+  fullCodeView(Docid:string){
+    this.router.navigate([`code/${Docid}`]);
+
+  }
+  shareLink(docId:string){
+
+    this._clipboard.copy(`http://localhost:4200/share/${window.localStorage.getItem('uid')}?docid=${docId}&viewerUid=${window.localStorage.getItem('uid')}`
+  );
+  this._snackBar.open('Code copied to clipboard', 'Close', {
+    duration: 2000,
+  });
+
   }
 }
