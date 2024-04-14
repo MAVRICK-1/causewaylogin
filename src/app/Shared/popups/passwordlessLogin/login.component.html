@@ -1,5 +1,5 @@
 <div class="login-box">
-  <form class="form-container" (ngSubmit)="authservice.sendLink(loginEmail.value)">
+  <form class="form-container" (ngSubmit)="authservice.signInWithEmailLinkAuth(loginEmail.value)">
     <mat-form-field class="input-group">
       <input matInput type="email" id="email" name="email" placeholder="Enter your email" required #loginEmail>
     </mat-form-field>

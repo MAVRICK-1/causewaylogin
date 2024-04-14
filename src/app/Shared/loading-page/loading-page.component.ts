@@ -10,8 +10,8 @@ import { AuthService } from '../../core/AuthService/auth.service';
   styleUrl: './loading-page.component.css',
 })
 export class LoadingPageComponent implements OnInit {
-  authService = inject(AuthService);
-  constructor( private router:Router) {}
+  //authService = inject(AuthService);
+  constructor( private router:Router, private authService:AuthService) {}
   ngOnInit(): void {
     // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     // Add 'implements OnInit' to the class.

@@ -1,3 +1,13 @@
-app-navbar{
-    z-index: 10;
-}
+  /* Sticky footer */
+  app-footer {
+    position: fixed !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important; /* Ensure it's above other content */
+  }
+
+  /* Ensure content doesn't overlap with navbar and footer */
+  router-outlet {
+    padding-top: 50px !important; /* Adjust this value based on your navbar height */
+    padding-bottom: 50px !important; /* Adjust this value based on your footer height */
+  }

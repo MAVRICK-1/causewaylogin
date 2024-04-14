@@ -1,41 +1,48 @@
-<div *ngIf="snippets.length > 0; else noCodeFound">
-  <h1>Code Snippets</h1>
-  <button mat-raised-button color="warn" class="add-code-btn" (click)="addCode()">Add Code</button>
-  <div class="snippet-container">
-    <mat-card *ngFor="let snippet of snippets" class="snippet-card">
-      <mat-card-header>
-        <mat-card-title>{{ snippet.title }}</mat-card-title>
-        <mat-card-subtitle>Code : </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content class="snippet-content">
-        <div *ngIf="!isExpanded(snippet)">
-          {{ getTruncatedSnippet(snippet.codeSnippet) }}
-        </div>
-        <div *ngIf="isExpanded(snippet)">
-          {{ snippet.codeSnippet }}
-        </div>
-        <button mat-raised-button color="primary" class="view-code-btn" (click)="fullCodeView(snippet.id)">View full code</button>
-      </mat-card-content>
-      <mat-card-actions class="snippet-actions">
-        <button mat-icon-button (click)="copySnippet(snippet.codeSnippet)">
-          <mat-icon>content_copy</mat-icon>
-        </button>
-        <button mat-icon-button (click)="editSnippet(snippet.id,snippet.title,snippet.codeSnippet)">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button (click)="deleteSnippet(snippet.id)">
-          <mat-icon>delete</mat-icon>
-        </button>
-        <button mat-icon-button (click)="shareLink(snippet.id)">
-          <mat-icon>share</mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
+<div *ngIf="isLoading; else snippetContent">
+  <app-loading-page></app-loading-page>
 </div>
-<ng-template #noCodeFound>
-  <div class="no-code-found">
-    <h1>No code found</h1>
+<ng-template #snippetContent>
+  <div *ngIf="snippets.length > 0; else noCodeFound">
+    <h1>Code Snippets</h1>
     <button mat-raised-button color="warn" class="add-code-btn" (click)="addCode()">Add Code</button>
+    <div class="snippet-container">
+      <mat-card *ngFor="let snippet of snippets" class="snippet-card">
+        <mat-card-header>
+          <mat-card-title>{{ snippet.title }}</mat-card-title>
+          <mat-card-subtitle>Code : </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="snippet-content">
+          <div *ngIf="!isExpanded(snippet)">
+            {{ getTruncatedSnippet(snippet.codeSnippet) }}
+          </div>
+          <div *ngIf="isExpanded(snippet)">
+            {{ snippet.codeSnippet }}
+          </div>
+          <button mat-raised-button color="primary" class="view-code-btn" (click)="fullCodeView(snippet.id)">View full code</button>
+        </mat-card-content>
+        <mat-card-actions class="snippet-actions">
+          <button mat-icon-button (click)="copySnippet(snippet.codeSnippet)">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+          <button mat-icon-button (click)="editSnippet(snippet.id,snippet.title,snippet.codeSnippet)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteSnippet(snippet.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button (click)="shareLink(snippet.id)">
+            <mat-icon>share</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
+  <ng-template #noCodeFound>
+    <div class="no-code-found">
+      <h1>No code found</h1>
+      <button mat-raised-button color="warn" class="add-code-btn" (click)="addCode()">Add Code</button>
+    </div>
+  </ng-template>
+  
+  
 </ng-template>

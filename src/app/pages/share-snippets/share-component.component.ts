@@ -54,5 +54,9 @@ export class ShareComponentComponent {
     duration: 2000,
   });
   }
-
+  sharlink(){
+    this._clipboard.copy(window.location.href);
+    this._snackBar.open('Link copied to clipboard', 'Close', {
+      duration: 2000,})
+  }
 }

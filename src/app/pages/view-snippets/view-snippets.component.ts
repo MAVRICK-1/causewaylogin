@@ -6,13 +6,14 @@ import { EditSnippetComponent } from '../../Shared/popups/edit-snippet/edit-snip
 import { FireStoreService } from '../../core/AuthStore/fire-store-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { LoadingPageComponent } from '../../Shared/loading-page/loading-page.component';
 
 @Component({
   selector: 'app-view-snippets',
   templateUrl: './view-snippets.component.html',
   styleUrls: ['./view-snippets.component.css'],
   standalone:true,
-  imports:[MatmoduleModule,EditSnippetComponent]
+  imports:[MatmoduleModule,EditSnippetComponent,LoadingPageComponent]
 })
 export class ViewSnippetsComponent implements OnInit {
   snippets: any[] = [];
@@ -48,11 +49,14 @@ isExpanded(snippet: any): boolean {
   }
 
   async loadSnippets() {
+    this.isLoading = true; // Set loading flag to true
     try {
       this.snippets = await this.firestoreService.getAllSnippet();
       console.log(this.snippets);
     } catch (error) {
       console.error('Error loading snippets:', error);
+    }finally{
+      this.isLoading = false; // Set loading flag to false
     }
   }
 
