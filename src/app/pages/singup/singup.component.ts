@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
 import {
-  FormControl,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators
+    FormControl,
+    FormsModule,
+    ReactiveFormsModule,
+    Validators
 } from '@angular/forms';
-import { MatmoduleModule } from '../Shared/models/matmodule.module';
+import { MatmoduleModule } from '../../Shared/models/matmodule.module';
 
 
 import { MatDialog } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ForgetpassComponent } from '../Shared/popups/forgetpass/forgetpass.component';
-import { PasswordDialogComponent } from '../Shared/popups/password-dialog/password-dialog.component';
-import { AuthService } from '../core/AuthService/auth.service';
+import { ForgetpassComponent } from '../../Shared/popups/forgetpass/forgetpass.component';
+import { PasswordDialogComponent } from '../../Shared/popups/password-dialog/password-dialog.component';
+import { AuthService } from '../../core/AuthService/auth.service';
+import { passwordlessLogin } from '../../Shared/popups/passwordlessLogin/login.component';
 //MatFormFieldModule,MatInputModule,ReactiveFormsModule
 @Component({
   standalone: true,
@@ -58,6 +59,9 @@ export class SingupComponent {
   }
   forget(){
     this.dialog.open(ForgetpassComponent)
+  }
+  Othermethod(){
+    this.dialog.open(passwordlessLogin)
   }
 }
 

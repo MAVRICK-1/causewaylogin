@@ -1,13 +1,10 @@
 <nav>
     <mat-toolbar color="primary">
-        <button mat-button routerLink="/"><b>CodeBin</b></button>
+        <button mat-button routerLink="/" aria-label="Home"><mat-icon>home</mat-icon><span class="icon-label">Home</span></button>
         <span class="example-spacer"></span>
-        @if(authService.isAuthenticated()){
-            <button mat-raised-button color="warn" (click)="authService.logout()">Logout</button>
-        }
-        @else{
-            <button mat-raised-button color="warn" [routerLink]="['/signup']"  >Sign in</button>
-        }
+        <button mat-button *ngIf="!authService.isAuthenticated()" routerLink="/signup" aria-label="Sign in"><mat-icon>login</mat-icon><span class="icon-label">Sign in</span></button>
+        <button mat-button *ngIf="authService.isAuthenticated()" routerLink="/create-snippet" aria-label="Create Snippet"><mat-icon>note_add</mat-icon><span class="icon-label">Create Snippet</span></button>
+        <button mat-button *ngIf="authService.isAuthenticated()" routerLink="/view-snippets" aria-label="View Code Snippets"><mat-icon>visibility</mat-icon><span class="icon-label">View Snippets</span></button>
+        <button mat-button *ngIf="authService.isAuthenticated()" (click)="authService.logout()" aria-label="Logout"><mat-icon>logout</mat-icon><span class="icon-label">Logout</span></button>
     </mat-toolbar>
 </nav>
-

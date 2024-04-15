@@ -12,10 +12,11 @@ import {MatCardModule} from '@angular/material/card';
 import { ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 const material =[CommonModule,MatToolbarModule,MatIcon,MatButtonModule,MatCommonModule,MatListModule,MatInputModule,
-MatFormFieldModule,MatStepperModule, ReactiveFormsModule,MatCardModule,MatTabsModule,MatSidenavModule]
+MatFormFieldModule,MatStepperModule, ReactiveFormsModule,MatCardModule,MatTabsModule,MatSidenavModule,MatDividerModule]
 
 
 @NgModule({

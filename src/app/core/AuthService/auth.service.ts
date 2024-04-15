@@ -7,6 +7,7 @@ import { InvalidEmailComponent } from '../../Shared/popups/invalid-email/invalid
 import { InvalidemailpasswordComponent } from '../../Shared/popups/invalidemailpassword/invalidemailpassword.component';
 import { LinksendComponent } from '../../Shared/popups/linksend/linksend.component';
 import { SucesspopComponent } from '../../Shared/popups/sucesspop/sucesspop.component';
+import { Location } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
   private uid?: string;
   private user?: any;
 
-  constructor(public dialog: MatDialog, private router: Router) {
+  constructor(public dialog: MatDialog, private router: Router,private location: Location) {
     this.AuthStateChanged();
   }
   AuthStateChanged(){
@@ -68,12 +69,12 @@ export class AuthService {
       });
   }
 
-  signInWithEmailLinkAuth(email: string) {
+  signInWithEmailLinkAuth(email: string,path: string = '/loading') {
     const auth = getAuth();
     const actionCodeSettings: ActionCodeSettings = {
       // URL you want to redirect back to. The domain (www.example.com) for this
       // URL must be in the authorized domains list in the Firebase Console.
-      url: window.location.origin +'/loading',
+      url:location.origin + this.location.prepareExternalUrl(path),
       // This must be true.
       handleCodeInApp: true,
     }
