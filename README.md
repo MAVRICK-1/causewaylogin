@@ -50,6 +50,9 @@ Watch this [YouTube video](#) to see a demonstration of CodeBin in action.
 
 Access CodeBin at [Codebin](https://causewaylogin.vercel.app/).
 
+Here's the corrected markdown for the code snippets section:
+
+```markdown
 ## Architecture
 
 The authentication service (`AuthService`) manages user authentication using Firebase Authentication. Below is an overview of the key functions:
@@ -140,9 +143,6 @@ signInWithEmailLinkAuth(email: string, path: string = '/loading') {
 
 </details>
 
-
-
-
 <details>
 <summary><b>confirmSignIn(url: string)</b></summary>
 
@@ -159,9 +159,7 @@ confirmSignIn(url: string) {
         // Get the email if available. This should be available if the user completes
         // the flow on the same device where they started it.
         let email = window.localStorage.getItem('emailForSignIn')!;
-        // The client SDK will parse the
-
- code from the link for you.
+        // The client SDK will parse the code from the link for you.
         signInWithEmailLink(auth, email, window.location.href)
             .then((result) => {
                 // Clear email from storage.
@@ -208,12 +206,15 @@ registerUser(email: string, password: string) {
                 this.dialog.open(InvalidEmailComponent);
             }
         });
-}```
+}
+```
 
 </details>
 
 <details>
-<summary><b>loginUser(email: string, password: string)</b></summary>
+<summary><b>loginUser(email:
+
+ string, password: string)</b></summary>
 
 Log in an existing user with email and password.
 
@@ -230,12 +231,13 @@ loginUser(email: string, password: string) {
             const errorMessage = error.message;
             this.dialog.open(InvalidemailpasswordComponent);
         });
-}```
+}
+```
 
 </details>
 
 <details>
-<summary><b>`logout()`</b></summary>
+<summary><b>logout()</b></summary>
 
 Log out the current user.
 
@@ -248,7 +250,8 @@ logout() {
     }).catch((error) => {
         console.log('Error occurred during signout:', error);
     });
-}```
+}
+```
 
 </details>
 
@@ -268,7 +271,8 @@ resetPassword(email: string) {
             console.log('Error occurred during password reset:', error);
             this.dialog.open(LinksendComponent);
         });
-}```
+}
+```
 
 </details>
 
@@ -280,7 +284,8 @@ Get the current authenticated user.
 ```typescript
 getCurrentUser() {
     return getAuth().currentUser;
-}```
+}
+```
 
 </details>
 
@@ -304,8 +309,8 @@ async createSnippet(snippet: any) {
         console.error("Error adding document: ", e);
         alert("error while creating");
     }
-}```
-
+}
+```
 
 </details>
 
@@ -323,8 +328,8 @@ async getAllSnippet() {
         result.push({ id: doc.id, ...doc.data() })
     });
     return result
-}```
-
+}
+```
 
 </details>
 
@@ -371,8 +376,8 @@ async deleteSnippet(docId: string) {
         console.error("Error deleting document: ", error);
         return false;
     }
-}```
-
+}
+```
 
 </details>
 
@@ -394,16 +399,16 @@ async editSnippet(docId: string, updatedSnippet: any) {
     } catch (error) {
         console.error("Error editing document: ", error);
         return false;
-    }
-}```
+   
 
+ }
+}
+```
 
 </details>
 
 <details>
-<summary><b>ShareSnippetById(docId: string, uid: string)</
-
-b></summary>
+<summary><b>ShareSnippetById(docId: string, uid: string)</b></summary>
 
 Retrieve a specific code snippet by its ID from Firestore for a given user ID (used for sharing).
 
@@ -423,10 +428,11 @@ async ShareSnippetById(docId: string, uid: string) {
             code: "not found"
         };
     }
-}```
-
+}
+```
 
 </details>
+
 
 
 
