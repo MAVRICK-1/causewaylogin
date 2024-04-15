@@ -53,7 +53,7 @@ export class ViewCodeComponent {
     });
   }
   shareSnippet(){
-    this._clipboard.copy(`http://localhost:4200/share/${window.localStorage.getItem('uid')}?docid=${this.id}&viewerUid=${window.localStorage.getItem('uid')}`
+    this._clipboard.copy(`https://causewaylogin.vercel.app/share/${window.localStorage.getItem('uid')}?docid=${this.id}&viewerUid=${window.localStorage.getItem('uid')}`
   );
   this._snackBar.open('Code copied to clipboard', 'Close', {
     duration: 2000,

@@ -140,6 +140,9 @@ signInWithEmailLinkAuth(email: string, path: string = '/loading') {
 
 </details>
 
+
+
+
 <details>
 <summary><b>confirmSignIn(url: string)</b></summary>
 
@@ -284,6 +287,130 @@ getCurrentUser() {
 }
 ```
 
+</details>
+The FireStoreService manages interactions with Firestore for storing, retrieving, updating, and deleting code snippets. Below is an overview of the key functions:
+
+<details>
+<summary><b>`createSnippet(snippet: any)`</b></summary>
+Create a new code snippet in Firestore for the current user.
+
+typescript
+Copy code
+async createSnippet(snippet: any) {
+    try {
+        const uid = this.authService.getUid();
+        const docRef = await addDoc(collection(this.db, `users/${uid}/codesamples`), {
+            ...snippet,
+            by: uid
+        });
+        console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+        console.error("Error adding document: ", e);
+        alert("error while creating");
+    }
+}
+</details>
+<details>
+<summary><b>`getAllSnippet()`</b></summary>
+Retrieve all code snippets stored in Firestore for the current user.
+
+typescript
+Copy code
+async getAllSnippet() {
+    let result: any[] = []
+    const uid = window.localStorage.getItem('uid')
+    const querySnapshot = await getDocs(collection(this.db, `users/${uid}/codesamples`));
+    querySnapshot.forEach((doc) => {
+        result.push({ id: doc.id, ...doc.data() })
+    });
+    return result
+}
+</details>
+<details>
+<summary><b>`getSnippetById(docId: string)`</b></summary>
+Retrieve a specific code snippet by its ID from Firestore for the current user.
+
+typescript
+Copy code
+async getSnippetById(docId: string) {
+    const uid = window.localStorage.getItem('uid');
+    const docRef = doc(this.db, `users/${uid}/codesamples`, docId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        return docSnap.data();
+    } else {
+        console.log("No such document!");
+        return {
+            id: "1",
+            title: "not found",
+            code: "not found"
+        };
+    }
+}
+</details>
+<details>
+<summary><b>`deleteSnippet(docId: string)`</b></summary>
+Delete a specific code snippet by its ID from Firestore for the current user.
+
+typescript
+Copy code
+async deleteSnippet(docId: string) {
+    try {
+        const uid = this.authService.getUid();
+        await deleteDoc(doc(this.db, `users/${uid}/codesamples`, docId));
+        console.log("Document deleted successfully");
+        return true;
+    } catch (error) {
+        console.error("Error deleting document: ", error);
+        return false;
+    }
+}
+</details>
+<details>
+<summary><b>`editSnippet(docId: string, updatedSnippet: any)`</b></summary>
+Update a specific code snippet by its ID in Firestore for the current user.
+
+typescript
+Copy code
+async editSnippet(docId: string, updatedSnippet: any) {
+    try {
+        const uid = this.authService.getUid();
+        const docRef = doc(this.db, `users/${uid}/codesamples`, docId);
+        
+        await setDoc(docRef, updatedSnippet, { merge: true });
+
+        console.log("Document edited successfully");
+        return true;
+    } catch (error) {
+        console.error("Error editing document: ", error);
+        return false;
+    }
+}
+</details>
+<details>
+<summary><b>`ShareSnippetById(docId: string, uid: string)`</b></summary>
+Retrieve a specific code snippet by its ID from Firestore for a given user ID (used for sharing).
+
+typescript
+Copy code
+async ShareSnippetById(docId: string, uid: string) {
+    const docRef = doc(this.db, `users/${uid}/codesamples`, docId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        return docSnap.data();
+    } else {
+        console.log("No such document!");
+        return {
+            id: "1",
+            title: "not found",
+            code: "not found"
+        };
+    }
+}
 </details>
 
 Feel free to expand and customize the README further with additional information about your project. Include screenshots or GIFs to provide visual explanations of your website's features.

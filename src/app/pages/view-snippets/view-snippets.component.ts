@@ -7,6 +7,7 @@ import { FireStoreService } from '../../core/AuthStore/fire-store-service.servic
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { LoadingPageComponent } from '../../Shared/loading-page/loading-page.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-view-snippets',
@@ -26,7 +27,8 @@ export class ViewSnippetsComponent implements OnInit {
     private firestoreService: FireStoreService,
     private dialog: MatDialog,
     private _snackBar: MatSnackBar,
-    private _clipboard: Clipboard
+    private _clipboard: Clipboard,
+    private location: Location,
   ) {}
 
   ngOnInit() {
@@ -100,7 +102,7 @@ isExpanded(snippet: any): boolean {
   }
   shareLink(docId:string){
 
-    this._clipboard.copy(`http://localhost:4200/share/${window.localStorage.getItem('uid')}?docid=${docId}&viewerUid=${window.localStorage.getItem('uid')}`
+    this._clipboard.copy( `https://causewaylogin.vercel.app/share/${window.localStorage.getItem('uid')}?docid=${docId}&viewerUid=${window.localStorage.getItem('uid')}`
   );
   this._snackBar.open('Code copied to clipboard', 'Close', {
     duration: 2000,
