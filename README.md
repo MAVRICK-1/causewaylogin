@@ -208,8 +208,7 @@ registerUser(email: string, password: string) {
                 this.dialog.open(InvalidEmailComponent);
             }
         });
-}
-```
+}```
 
 </details>
 
@@ -231,8 +230,7 @@ loginUser(email: string, password: string) {
             const errorMessage = error.message;
             this.dialog.open(InvalidemailpasswordComponent);
         });
-}
-```
+}```
 
 </details>
 
@@ -250,8 +248,7 @@ logout() {
     }).catch((error) => {
         console.log('Error occurred during signout:', error);
     });
-}
-```
+}```
 
 </details>
 
@@ -271,8 +268,7 @@ resetPassword(email: string) {
             console.log('Error occurred during password reset:', error);
             this.dialog.open(LinksendComponent);
         });
-}
-```
+}```
 
 </details>
 
@@ -284,18 +280,18 @@ Get the current authenticated user.
 ```typescript
 getCurrentUser() {
     return getAuth().currentUser;
-}
-```
+}```
 
 </details>
+
 The FireStoreService manages interactions with Firestore for storing, retrieving, updating, and deleting code snippets. Below is an overview of the key functions:
 
 <details>
-<summary><b>`createSnippet(snippet: any)`</b></summary>
+<summary><b>createSnippet(snippet: any)</b></summary>
+
 Create a new code snippet in Firestore for the current user.
 
-typescript
-Copy code
+```typescript
 async createSnippet(snippet: any) {
     try {
         const uid = this.authService.getUid();
@@ -308,14 +304,17 @@ async createSnippet(snippet: any) {
         console.error("Error adding document: ", e);
         alert("error while creating");
     }
-}
+}```
+
+
 </details>
+
 <details>
-<summary><b>`getAllSnippet()`</b></summary>
+<summary><b>getAllSnippet()</b></summary>
+
 Retrieve all code snippets stored in Firestore for the current user.
 
-typescript
-Copy code
+```typescript
 async getAllSnippet() {
     let result: any[] = []
     const uid = window.localStorage.getItem('uid')
@@ -324,14 +323,17 @@ async getAllSnippet() {
         result.push({ id: doc.id, ...doc.data() })
     });
     return result
-}
+}```
+
+
 </details>
+
 <details>
-<summary><b>`getSnippetById(docId: string)`</b></summary>
+<summary><b>getSnippetById(docId: string)</b></summary>
+
 Retrieve a specific code snippet by its ID from Firestore for the current user.
 
-typescript
-Copy code
+```typescript
 async getSnippetById(docId: string) {
     const uid = window.localStorage.getItem('uid');
     const docRef = doc(this.db, `users/${uid}/codesamples`, docId);
@@ -349,13 +351,16 @@ async getSnippetById(docId: string) {
         };
     }
 }
+```
+
 </details>
+
 <details>
-<summary><b>`deleteSnippet(docId: string)`</b></summary>
+<summary><b>deleteSnippet(docId: string)</b></summary>
+
 Delete a specific code snippet by its ID from Firestore for the current user.
 
-typescript
-Copy code
+```typescript
 async deleteSnippet(docId: string) {
     try {
         const uid = this.authService.getUid();
@@ -366,14 +371,17 @@ async deleteSnippet(docId: string) {
         console.error("Error deleting document: ", error);
         return false;
     }
-}
+}```
+
+
 </details>
+
 <details>
-<summary><b>`editSnippet(docId: string, updatedSnippet: any)`</b></summary>
+<summary><b>editSnippet(docId: string, updatedSnippet: any)</b></summary>
+
 Update a specific code snippet by its ID in Firestore for the current user.
 
-typescript
-Copy code
+```typescript
 async editSnippet(docId: string, updatedSnippet: any) {
     try {
         const uid = this.authService.getUid();
@@ -387,14 +395,19 @@ async editSnippet(docId: string, updatedSnippet: any) {
         console.error("Error editing document: ", error);
         return false;
     }
-}
+}```
+
+
 </details>
+
 <details>
-<summary><b>`ShareSnippetById(docId: string, uid: string)`</b></summary>
+<summary><b>ShareSnippetById(docId: string, uid: string)</
+
+b></summary>
+
 Retrieve a specific code snippet by its ID from Firestore for a given user ID (used for sharing).
 
-typescript
-Copy code
+```typescript
 async ShareSnippetById(docId: string, uid: string) {
     const docRef = doc(this.db, `users/${uid}/codesamples`, docId);
     const docSnap = await getDoc(docRef);
@@ -410,10 +423,13 @@ async ShareSnippetById(docId: string, uid: string) {
             code: "not found"
         };
     }
-}
+}```
+
+
 </details>
 
-Feel free to expand and customize the README further with additional information about your project. Include screenshots or GIFs to provide visual explanations of your website's features.
+
+
 
 --- 
 
