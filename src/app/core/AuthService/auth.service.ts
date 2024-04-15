@@ -53,11 +53,12 @@ export class AuthService {
     const auth = getAuth();
     signInWithPopup(auth, new GoogleAuthProvider())
       .then((result) => {
+        this.router.navigate(['/snippet']);
         const credential = GoogleAuthProvider.credentialFromResult(result)!;
         const token = credential.accessToken;
         const user = result.user;
         console.log(user);
-        this.router.navigate(['/snippet']);
+        
         
         // IdP data available using getAdditionalUserInfo(result)
       }).catch((error) => {
@@ -82,6 +83,9 @@ export class AuthService {
     // Save the email locally so you don't need to ask the user for it again
     // if they open the link on the same device.
     window.localStorage.setItem('emailForSignIn', email);
+    this.dialog.open(LinksendComponent)
+    console.log('email sent');
+    
     // ...
   })
   .catch((error) => {
