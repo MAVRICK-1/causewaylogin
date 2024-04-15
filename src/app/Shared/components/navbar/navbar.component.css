@@ -19,12 +19,14 @@ nav mat-toolbar button {
 
 @media (max-width: 600px) {
   .icon-label {
-      display: none;
+      display: none; /* Hide text labels on small screens */
+  }
 
   nav mat-toolbar button {
-      flex-basis: 45%;
+      flex-basis: 45%; /* Adjust button width for small screens */
+  }
 
   nav mat-toolbar button:last-child {
-      flex-basis: 100%;
+      flex-basis: 100%; /* Ensure the last button (logout) spans full width */
   }
 }
