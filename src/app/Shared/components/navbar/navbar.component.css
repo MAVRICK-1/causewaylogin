@@ -9,7 +9,7 @@ nav mat-toolbar button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5px;
+  margin: 5px; /* Adjust the space between buttons */
 }
 
 .icon-label {
@@ -23,10 +23,10 @@ nav mat-toolbar button {
   }
 
   nav mat-toolbar button {
-      flex-basis: 45%; /* Adjust button width for small screens */
+      margin: 5px; /* Adjust the space between buttons on small screens */
   }
 
-  nav mat-toolbar button:last-child {
-      flex-basis: 100%; /* Ensure the last button (logout) spans full width */
+  nav mat-toolbar button mat-icon {
+      font-size: 18px; /* Decrease icon size for better visibility on small screens */
   }
 }

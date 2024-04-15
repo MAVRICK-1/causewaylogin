@@ -177,6 +177,7 @@ if (isSignInWithEmailLink(auth, window.location.href)) {
     const auth = getAuth();
     signOut(auth).then(() => {
       this.uid = undefined;
+      this.router.navigate(['/']);
     }).catch((error) => {
       console.log('Error occurred during signout:', error);
     });
