@@ -1,7 +1,3 @@
-Certainly! Below is an updated version of the README file written in Markdown, utilizing expansion panels to show the code snippets and explanations:
-
----
-
 # CodeBin - Secure Code Snippet Storage
 
 CodeBin is a web application built with Angular, Angular Material, NgRx, RxJS, and Firebase. It allows users to securely store and edit their code snippets in the cloud.
