@@ -52,7 +52,7 @@ Access CodeBin at [Codebin](https://causewaylogin.vercel.app/).
 
 Here's the corrected markdown for the code snippets section:
 
-```markdown
+
 ## Architecture
 
 The authentication service (`AuthService`) manages user authentication using Firebase Authentication. Below is an overview of the key functions:
