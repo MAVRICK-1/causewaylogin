@@ -437,6 +437,4 @@ async ShareSnippetById(docId: string, uid: string) {
 
 
 
---- 
-
-This README file provides detailed information about your project, including its features, how to get started, and an overview of the architecture with code snippets explained using expansion panels. Adjustments can be made as needed to suit your project's specific requirements.
+---
