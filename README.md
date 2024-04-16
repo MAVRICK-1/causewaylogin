@@ -2,6 +2,9 @@
 
 CodeBin is a web application built with Angular, Angular Material, NgRx, RxJS, and Firebase. It allows users to securely store and edit their code snippets in the cloud.
 
+<div align="center">
+  <img alt="Demo" src="./Images/websiteImage.png" />
+</div>
 ## Features
 
 - **Secure Storage**: Store your code snippets securely in the cloud using Firebase Authentication.
@@ -18,7 +21,7 @@ To get started with CodeBin, follow these steps:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/MAVRICK-1/causewaylogin
    ```
 
 2. Install dependencies:
@@ -44,7 +47,7 @@ To get started with CodeBin, follow these steps:
 
 ## Demo
 
-Watch this [YouTube video](#) to see a demonstration of CodeBin in action.
+Watch this [YouTube video](https://www.youtube.com/watch?v=_vIxsk2tQR8&list=PL_CHDCAKedMzX2LWcA_WGHUqLnCUAF5V8) to see a demonstration of CodeBin in action.
 
 ## Website
 
