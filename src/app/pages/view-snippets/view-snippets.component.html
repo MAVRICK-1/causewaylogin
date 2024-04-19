@@ -8,7 +8,7 @@
     <div class="snippet-container">
       <mat-card *ngFor="let snippet of snippets" class="snippet-card">
         <mat-card-header>
-          <mat-card-title>{{ snippet.title }}</mat-card-title>
+          <mat-card-title>{{ getTruncatedSnippet(snippet.title) }}</mat-card-title>
           <mat-card-subtitle>Code : </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="snippet-content">
